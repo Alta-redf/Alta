@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Top Up Genshin Impact</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      color: #3b3b3b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 0;
+      min-height: 100vh;
+
+      /* Background Genshin */
+      background-image: url(zongli2); /* ganti sesuai file kamu */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 2.5em;
+      text-shadow: 0 0 18px gold;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 14px 30px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      border: 1px solid gold;
+      backdrop-filter: blur(4px);
+    }
+
+    .topup-container {
+      width: 90%;
+      max-width: 700px;
+      background-color: rgba(255, 255, 255, 0.75);
+      border: 2px solid gold;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      backdrop-filter: blur(4px);
+    }
+
+    label {
+      font-weight: bold;
+      color: #4a4a4a;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 2px solid gold;
+      background-color: #ffffffdd;
+      color: #333;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    input::placeholder {
+      color: #8f8f8f;
+    }
+
+    /* Genesis Crystal buttons */
+    .gc-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-bottom: 25px;
+    }
+
+    .gc-btn {
+      width: 150px;
+      height: 75px;
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #3b3b3b;
+      font-weight: bold;
+      border: 2px solid gold;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+    }
+
+    .gc-btn:hover {
+      background-color: gold;
+      color: white;
+      box-shadow: 0 0 18px gold;
+      transform: scale(1.05);
+    }
+
+    .gc-btn.selected {
+      background-color: gold;
+      color: white;
+      box-shadow: 0 0 25px gold;
+    }
+
+    /* Dropdown */
+    select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 2px solid gold;
+      margin-bottom: 20px;
+      background-color: #ffffffcc;
+      color: #4a4a4a;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    }
+
+    /* Tombol Submit */
+    .btn-submit {
+      background-color: gold;
+      border: 2px solid #b8860b;
+      font-weight: bold;
+      font-size: 17px;
+      padding: 14px 25px;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+      color: white;
+      transition: 0.3s;
+      margin-bottom: 15px;
+      box-shadow: 0 0 18px gold;
+    }
+
+    .btn-submit:hover {
+      background-color: #e6c200;
+      box-shadow: 0 0 25px gold;
+    }
+
+    /* Tombol kembali */
+    .back-btn {
+      text-decoration: none;
+      color: #3b3b3b;
+      background-color: #ffffffdd;
+      border: 3px solid gold;
+      padding: 12px 25px;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.3s;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    }
+
+    .back-btn:hover {
+      background-color: gold;
+      color: white;
+      box-shadow: 0 0 25px gold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Top Up Genshin Impact</h1>
+
+  <div class="topup-container">
+    <form id="topupForm">
+
+      <label for="userId">UID Genshin Impact:</label>
+      <input type="number" id="userId" name="userId" placeholder="Masukkan UID kamu" required>
+
+      <label>Pilih Genesis Crystal:</label>
+      <div class="gc-options">
+        <button type="button" class="gc-btn" data-value="60">60 GC<br>Rp15.000</button>
+        <button type="button" class="gc-btn" data-value="330">330 GC<br>Rp75.000</button>
+        <button type="button" class="gc-btn" data-value="1090">1090 GC<br>Rp229.000</button>
+        <button type="button" class="gc-btn" data-value="2240">2240 GC<br>Rp449.000</button>
+        <button type="button" class="gc-btn" data-value="3880">3880 GC<br>Rp749.000</button>
+        <button type="button" class="gc-btn" data-value="8080">8080 GC<br>Rp1.499.000</button>
+      </div>
+
+      <input type="hidden" id="selectedGC" name="gc">
+
+      <label for="payment">Metode Pembayaran:</label>
+      <select id="payment" required>
+        <option value="">-- Pilih Metode Pembayaran --</option>
+        <option value="dana">DANA</option>
+        <option value="gopay">GoPay</option>
+        <option value="ovo">OVO</option>
+        <option value="qris">QRIS</option>
+        <option value="bank">Transfer Bank</option>
+      </select>
+
+      <button type="submit" class="btn-submit">Lanjutkan Pembayaran</button>
+    </form>
+
+    <a href="halaman kedua.html" class="back-btn">← Kembali</a>
+  </div>
+
+  <script>
+    const gcButtons = document.querySelectorAll(".gc-btn");
+    const selectedGCInput = document.getElementById("selectedGC");
+
+    gcButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        gcButtons.forEach(b => b.classList.remove("selected"));
+        btn.classList.add("selected");
+        selectedGCInput.value = btn.dataset.value;
+      });
+    });
+
+    document.getElementById("topupForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      if (!selectedGCInput.value) {
+        alert("Silakan pilih jumlah Genesis Crystal terlebih dahulu ✨");
+        return;
+      }
+      alert("Top Up " + selectedGCInput.value + " Genesis Crystal berhasil! 🌟");
+      this.reset();
+      gcButtons.forEach(b => b.classList.remove("selected"));
+    });
+  </script>
+
+</body>
+</html>

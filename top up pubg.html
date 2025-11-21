@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Top Up PUBG Mobile</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      color: #e5e5e5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 0;
+      min-height: 100vh;
+
+      /* Background PUBG */
+      background-image: url(bckpubg); /* Ganti sesuai file kamu */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    h1 {
+      color: #dcdcdc;
+      font-size: 2.3em;
+      text-shadow: 0 0 15px #9e9e9e;
+      background-color: rgba(10, 10, 10, 0.65);
+      padding: 12px 25px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+      border: 1px solid #4f4f4f;
+      backdrop-filter: blur(3px);
+    }
+
+    .topup-container {
+      width: 90%;
+      max-width: 700px;
+      background-color: rgba(15, 15, 15, 0.78);
+      border: 2px solid #4f4f4f;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 0 25px rgba(180, 180, 180, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      backdrop-filter: blur(3px);
+    }
+
+    label {
+      font-weight: bold;
+      color: #cfcfcf;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #5c5c5c;
+      background-color: rgba(50, 50, 50, 0.4);
+      color: #e0e0e0;
+      margin-bottom: 20px;
+    }
+
+    input::placeholder {
+      color: #b5b5b5;
+    }
+
+    /* UC buttons */
+    .uc-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-bottom: 25px;
+    }
+
+    .uc-btn {
+      width: 150px;
+      height: 75px;
+      background-color: rgba(40, 40, 40, 0.85);
+      color: #dcdcdc;
+      font-weight: bold;
+      border: 2px solid #5c5c5c;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+    }
+
+    .uc-btn:hover {
+      background-color: #9c9c9c;
+      color: black;
+      box-shadow: 0 0 15px #bfbfbf;
+      transform: scale(1.05);
+    }
+
+    .uc-btn.selected {
+      background-color: #ffffff;
+      color: black;
+      box-shadow: 0 0 20px #dcdcdc;
+    }
+
+    /* Dropdown */
+    select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #5c5c5c;
+      margin-bottom: 20px;
+      background-color: rgba(35, 35, 35, 0.8);
+      color: #dcdcdc;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(200, 200, 200, 0.2);
+    }
+
+    /* Tombol Submit */
+    .btn-submit {
+      background-color: #ffffff;
+      border: 2px solid #5c5c5c;
+      font-weight: bold;
+      font-size: 17px;
+      padding: 14px 25px;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+      color: black;
+      transition: 0.3s;
+      margin-bottom: 15px;
+      box-shadow: 0 0 18px #bfbfbf;
+    }
+
+    .btn-submit:hover {
+      background-color: #bfbfbf;
+      color: black;
+      box-shadow: 0 0 20px #e0e0e0;
+    }
+
+    /* Tombol kembali */
+    .back-btn {
+      text-decoration: none;
+      color: black;
+      background-color: #bfbfbf;
+      border: 3px solid #2b2b2b;
+      padding: 12px 25px;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.3s;
+      box-shadow: 0 0 15px #9e9e9e;
+    }
+
+    .back-btn:hover {
+      background-color: #2b2b2b;
+      color: #e0e0e0;
+      box-shadow: 0 0 20px #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Top Up PUBG Mobile</h1>
+
+  <div class="topup-container">
+    <form id="topupForm">
+
+      <label for="userId">ID Player PUBG:</label>
+      <input type="number" id="userId" name="userId" placeholder="Masukkan ID PUBG kamu" required>
+
+      <label>Pilih UC:</label>
+      <div class="uc-options">
+        <button type="button" class="uc-btn" data-value="60">60 UC<br>Rp10.000</button>
+        <button type="button" class="uc-btn" data-value="300">300 UC<br>Rp50.000</button>
+        <button type="button" class="uc-btn" data-value="600">600 UC<br>Rp100.000</button>
+        <button type="button" class="uc-btn" data-value="1500">1500 UC<br>Rp250.000</button>
+        <button type="button" class="uc-btn" data-value="3000">3000 UC<br>Rp500.000</button>
+        <button type="button" class="uc-btn" data-value="6000">6000 UC<br>Rp1.000.000</button>
+      </div>
+
+      <input type="hidden" id="selectedUC" name="uc">
+
+      <label for="payment">Metode Pembayaran:</label>
+      <select id="payment" required>
+        <option value="">-- Pilih Metode Pembayaran --</option>
+        <option value="dana">DANA</option>
+        <option value="gopay">GoPay</option>
+        <option value="ovo">OVO</option>
+        <option value="qris">QRIS</option>
+        <option value="bank">Transfer Bank</option>
+      </select>
+
+      <button type="submit" class="btn-submit">Lanjutkan Pembayaran</button>
+    </form>
+
+    <a href="halaman kedua.html" class="back-btn">← Kembali</a>
+  </div>
+
+  <script>
+    const ucButtons = document.querySelectorAll(".uc-btn");
+    const selectedUCInput = document.getElementById("selectedUC");
+
+    ucButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        ucButtons.forEach(b => b.classList.remove("selected"));
+        btn.classList.add("selected");
+        selectedUCInput.value = btn.dataset.value;
+      });
+    });
+
+    document.getElementById("topupForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      if (!selectedUCInput.value) {
+        alert("Silakan pilih jumlah UC terlebih dahulu 🔫");
+        return;
+      }
+      alert("Top Up " + selectedUCInput.value + " UC berhasil! 🎮🔥");
+      this.reset();
+      ucButtons.forEach(b => b.classList.remove("selected"));
+    });
+  </script>
+
+</body>
+</html>

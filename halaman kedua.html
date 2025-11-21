@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Halaman Utama</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #202020;
+      color: white;
+    }
+
+    /* Wrapper header */
+    .header-wrapper {
+      padding: 40px 20px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    header {
+      background-color: #fff66f;
+      color: #202020;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      text-align: center;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    /* Navigasi tombol */
+    nav {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      background-color: #202020;
+      color: #fff66f;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      border: 2px solid #202020;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #fff66f;
+      color: #202020;
+      border-color: white;
+    }
+
+    /* Main */
+    main {
+      padding: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .game-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+      gap: 20px;
+    }
+
+   .game-item {
+  position: relative;
+  border: 2px solid #fff66f;
+  border-radius: 10px;
+  overflow: hidden;
+
+  aspect-ratio: 1 / 1; /* --- kotak sempurna --- */
+
+  display: flex;
+  align-items: flex-end;
+  background-size: cover;
+  background-position: center;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+
+    .game-item:hover {
+      transform: scale(1.02);
+      border-color: white;
+    }
+
+    .game-info {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 15px;
+      width: 100%;
+    }
+
+    .game-info h2 {
+      margin: 0;
+      color: #fff66f;
+    }
+
+    .game-info p {
+      margin: 5px 0 0;
+      font-size: 14px;
+      color: #ddd;
+    }
+  </style>
+</head>
+<body> 
+
+  <!-- Header -->
+  <div class="header-wrapper">
+    <header>
+      <h1>Top Up Game Aman dan Terpercaya</h1>
+      <nav>
+        <a href="index.html"> <u>Halaman Utama</u></a>
+        <a href="Event2.html"><u>Event</u></a>
+      </nav>
+    </header>
+  </div>
+
+  <main>
+    <div class="game-list">
+      <a href="top up ff.html" class="game-item" style="background-image: url('uciwa epep.jfif');">
+        <div class="game-info">
+          <h2>Free Fire</h2>
+          <p>Game battle royale populer dengan banyak event seru.</p>
+        </div>
+      </a>
+
+      <a href="top up ml.html" class="game-item" style="background-image: url('ml.jfif');">
+        <div class="game-info">
+          <h2>Mobile Legends</h2>
+          <p>MOBA 5v5 yang paling banyak dimainkan di Asia Tenggara.</p>
+        </div>
+      </a>
+
+      <a href="top up pubg.html" class="game-item" style="background-image: url('pubg.jfif');">
+        <div class="game-info">
+          <h2>PUBG Mobile</h2>
+          <p>Game battle royale realistis dengan grafis tinggi.</p>
+        </div>
+      </a>
+
+      <a href="top up gensin.html" class="game-item" style="background-image: url('gengsin.jfif');">
+        <div class="game-info">
+          <h2>Genshin Impact</h2>
+          <p>Game RPG open-world dengan grafik indah dan alur cerita menarik.</p>
+        </div>
+      </a>
+    </div>
+  </main>
+
+</body>
+</html>

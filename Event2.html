@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  
+  <meta charset="UTF-8">
+  <title>Event Mobile Legends</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+      background: #1b1b1b;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* === KOTAK EVENT === */
+    .event-box {
+      background: linear-gradient(145deg, #2c2c2c, #1e1e1e);
+      border-radius: 20px;
+      padding: 30px;
+      width: 85%;
+      max-width: 780px;
+      text-align: center;
+      border: 2px solid gold;
+
+      box-shadow: 
+        0 0 20px rgba(255, 215, 0, 0.3),
+        0 0 40px rgba(255, 215, 0, 0.15);
+
+      position: relative;
+    }
+
+    /* Ornamen sudut */
+    .event-box::before,
+    .event-box::after {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border: 3px solid gold;
+      border-radius: 10px;
+      opacity: 0.7;
+    }
+
+    .event-box::before {
+      top: -15px;
+      left: -15px;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    .event-box::after {
+      bottom: -15px;
+      right: -15px;
+      border-left: none;
+      border-top: none;
+    }
+
+    .event-box h1 {
+      color: gold;
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px gold;
+    }
+
+    /* === SLIDER === */
+    .slider {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      height: 340px;
+      margin: 0 auto 25px auto;
+      overflow: hidden;
+      border-radius: 15px;
+      border: 3px solid #fff66f;
+      box-shadow: 0 0 15px rgba(255,215,0,0.3);
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .slides img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Text */
+    .event-box p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    /* === TOMBOL PREMIUM === */
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      font-size: 15px;
+      font-weight: bold;
+      color: black;
+      background: linear-gradient(145deg, #ffd700, #e2c100);
+      border-radius: 12px;
+      border: none;
+      text-decoration: none;
+      box-shadow: 
+        0 4px 12px rgba(255,215,0,0.4),
+        inset 0 0 5px rgba(0,0,0,0.3);
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.07);
+      background: linear-gradient(145deg, #fff27a, #e9d200);
+      box-shadow: 
+        0 0 18px gold,
+        inset 0 0 5px rgba(255,255,255,0.3);
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="event-box">
+    <h1>Event Mobile Legends</h1>
+
+    <!-- SLIDER GAMBAR -->
+    <div class="slider">
+      <div class="slides" id="slides">
+        <img src="event ml 2.jpg" alt="Gambar 1">
+        <img src="ml ev 1.jpg" alt="Gambar 2">
+        <img src="ml ev 3.jpg" alt="Gambar 3">
+        <img src="ml ev 4.jpg" alt="Gambar 4">
+      </div>
+    </div>
+
+    <p>
+      🎉 Ikuti event spesial Mobile Legends!  
+      Dapatkan skin eksklusif, bonus diamond, dan berbagai hadiah menarik.  
+      Event ini berlangsung sampai <b>31 Oktober 2025</b>. Jangan sampai ketinggalan!
+    </p>
+
+    <div class="btn-container">
+      <a href="top up ml.html" class="btn">Top Up Sekarang</a>
+      <a href="halaman kedua.html" class="btn">Kembali</a>
+    </div>
+  </div>
+
+  <script>
+    const slides = document.getElementById("slides");
+    let index = 0;
+
+    // Jumlah asli gambar
+    const total = slides.children.length;
+
+    // Clone slide pertama ke akhir untuk loop halus
+    const firstClone = slides.children[0].cloneNode(true);
+    slides.appendChild(firstClone);
+
+    function showSlide(animated = true) {
+      if (!animated) {
+        slides.style.transition = "none";
+      } else {
+        slides.style.transition = "transform 0.2s ease-in-out";
+      }
+
+      slides.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function nextSlide() {
+      index++;
+      showSlide(true);
+
+      // Jika mencapai clone → reset ke slide asli tanpa animasi
+      if (index === total) {
+        setTimeout(() => {
+          index = 0;
+          showSlide(false);
+        }, 400);
+      }
+    }
+
+    // Auto play
+    setInterval(nextSlide, 3000);
+  </script>
+
+</body>
+</html>
