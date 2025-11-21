@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Tombol</title>
-  <link rel="stylesheet" href="Halaman utama.css">
       
   <style>
     body {
@@ -11,27 +10,24 @@
       padding: 0;
       font-family: sans-serif;
       height: 100vh;
-      background-color: #f5f5f5;
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
-    /* Container tombol di bawah tengah layar */
     .button-container {
       position: fixed;
-      bottom: 45px;           /* jarak dari bawah */
-      left: 50%;              /* posisi tengah horizontal */
-      transform: translateX(-50%); /* geser ke tengah */
+      bottom: 45px;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
-      gap: 15px;              /* jarak antar tombol */
-      z-index: 1000;          /* pastikan di atas elemen lain */
+      gap: 15px;
+      z-index: 1000;
     }
 
-    /* Style tombol umum */
     .btn {
-      width: 140px;      /* lebar seragam */
-      height: 55px;      /* tinggi seragam */
+      width: 140px;
+      height: 55px;
       font-size: 16px;
       font-weight: bold;
       color: black;
@@ -51,7 +47,6 @@
       color: gold;
     }
 
-    /* Iframe tombol musik, samakan ukuran */
     #musicFrame {
       width: 140px;
       height: 55px;
@@ -61,10 +56,20 @@
     }
   </style>
 </head>
-<body>
-  
+
+<body style="
+  background-image: url('zongli.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+">
+
+
   <div class="button-container">
     <a href="halaman kedua.html" class="btn">Top Up</a>
     <a href="login.html" class="btn">Login</a>
     <a href="event.html" class="btn">Event</a>
-    <!--        
+  </div>
+
+</body>
+</html>
